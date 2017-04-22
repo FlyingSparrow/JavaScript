@@ -1,3 +1,24 @@
+function addLoadEvent(func){
+	var oldonload = window.onload;
+	if(typeof window.onload != 'function'){
+		window.onload = func;
+	}else{
+		window.onload = function(){
+			oldonload();
+			func();
+		}
+	}
+}
+
+function insertAfter(newElement, targetElement){
+	var parent = targetElement.parentNode;
+	if(parent.lastChilde == targetElement){
+		parent.appendChild(newElement);
+	}else{
+		parent.insertBefore(newElement, targetElement.nextSibling);
+	}
+}
+
 function showPic(whichPic){
 	var placeholder = document.getElementById('placeholder');
 	if(!placeholder){
@@ -23,25 +44,6 @@ function showPic(whichPic){
 	return true;
 }
 
-function popUp(winURL){
-	window.open(winURL, 'popup', 'width=320,height=480');
-}
-
-window.onload = function(){
-	if(!document.getElementsByTagName){
-		return false;
-	}
-	var lnks = document.getElementsByTagName('a');
-	for(var i=0; i<lnks.length; i++){
-		if(lnks[i].getAttribute('class') == 'popup'){
-			lnks[i].onclick = function(){
-				popUp(this.getAttribute('href'));
-				return false;
-			}
-		}
-	}
-}
-
 function prepareGallery(){
 	if(!document.getElementById){
 		return false;
@@ -61,16 +63,38 @@ function prepareGallery(){
 	}
 }
 
-function addLoadEvent(func){
-	var oldonload = window.onload;
-	if(typeof window.onload != 'function'){
-		window.onload = func;
-	}else{
-		window.onload = function(){
-			oldonload();
-			func();
-		}
+function preparePlaceholder(){
+	if(!document.getElementById){
+		return false;
 	}
+	if(!document.createElement){
+		return false;
+	}
+	if(!document.createTextNode){
+		return false;
+	}
+	if(!document.getElementById('imagegallery')){
+		return false;
+	}
+	
+	var placeholder = document.createElement('img');
+	placeholder.setAttribute('id', 'placeholder');
+	placeholder.setAttribute('src', '../images/placeholder.jpg');
+	placeholder.setAttribute('title', 'my image gallery');
+	
+	var description = document.createElement('p');
+	description.setAttribute('id', 'description');
+	var desctext = document.createTextNode('Choose an image.');
+	description.appendChild(desctext);
+	
+	/*var body = document.getElementsByTagName('body')[0];
+	body.appendChild(placeholder);
+	body.appendChild(description);*/
+	
+	var gallery = document.getElementById('imagegallery');
+	insertAfter(placeholder, gallery);
+	insertAfter(description, placeholder);
 }
 
 addLoadEvent(prepareGallery);
+addLoadEvent(preparePlaceholder);

@@ -28,7 +28,12 @@ img{
 	display: block;
 	clear: both;
 }
-
-.popup{
-	
+#imagegallery{
+	list-style: none;
+}
+#imagegallery li{
+	display: inline;
+}
+#imagegallery li a img{
+	border: 0;
 }

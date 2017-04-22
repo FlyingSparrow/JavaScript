@@ -7,11 +7,25 @@
 </head>
 <body>
 	<h1>Snapshots</h1>
-	<ul>
-		<li><a href="../images/fireworks.jpg" class="popup" onclick="showPic(this); return false;" title="A fireworks display">Fireworks</a></li>
-		<li><a href="../images/coffee.jpg" class="popup" onclick="showPic(this); return false;" title="A cup of black coffee">Coffee</a></li>
-		<li><a href="../images/rose.jpg" class="popup" onclick="showPic(this); return false;" title="A red, red rose">Rose</a></li>
-		<li><a href="../images/bigben.jpg" class="popup" onclick="showPic(this); return false;" title="The famous clock">Big Ben</a></li>
+	<!-- <ul id="imagegallery">
+		<li><a href="../images/fireworks.jpg" title="A fireworks display">Fireworks</a></li>
+		<li><a href="../images/coffee.jpg" title="A cup of black coffee">Coffee</a></li>
+		<li><a href="../images/rose.jpg" title="A red, red rose">Rose</a></li>
+		<li><a href="../images/bigben.jpg" title="The famous clock">Big Ben</a></li>
+	</ul> -->
+	<ul id="imagegallery">
+		<li><a href="../images/fireworks.jpg" title="A fireworks display">
+			<img src="../images/thumbnail_fireworks.jpg" title="Fireworks"/>
+		</a></li>
+		<li><a href="../images/coffee.jpg" title="A cup of black coffee">
+			<img src="../images/thumbnail_coffee.jpg" title="Coffee"/>
+		</a></li>
+		<li><a href="../images/rose.jpg" title="A red, red rose">
+			<img src="../images/thumbnail_rose.jpg" title="Rose"/>
+		</a></li>
+		<li><a href="../images/bigben.jpg" title="The famous clock">
+			<img src="../images/thumbnail_bigben.jpg" title="Big Ben"/>
+		</a></li>
 	</ul>
 	<img id="placeholder" src="../images/placeholder.jpg" title="my image gallery"/>
 	<p id="description">Choose an image.</p>

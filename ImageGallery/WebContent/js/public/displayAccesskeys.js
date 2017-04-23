@@ -45,5 +45,4 @@ function check(){
 	}
 	return true;
 }
-
 addLoadEvent(displayAccesskeys);

@@ -1,0 +1,5 @@
+@charset "utf-8";
+p#example{
+	color: #999999;
+	font: 12px 'Arial', sans-serif;
+}

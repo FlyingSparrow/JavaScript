@@ -9,12 +9,25 @@ function stripeTables(){
 		odd = false;
 		for(var j=0; j<rows.length; j++){
 			if(odd == true){
-				rows[j].style.backgroundColor = '#ffc';
+//				rows[j].style.backgroundColor = '#ffc';
+//				rows[j].className = 'odd';
+				addClass(rows[j], 'odd');
 				odd = false;
 			}else{
 				odd = true;
 			}
 		}
+	}
+}
+
+function addClass(element, value){
+	if(!element.className){
+		element.className = value;
+	}else{
+		var newClassName = element.className;
+		newClassName += ' ';
+		newClassName += value;
+		element.className = newClassName;
 	}
 }
 

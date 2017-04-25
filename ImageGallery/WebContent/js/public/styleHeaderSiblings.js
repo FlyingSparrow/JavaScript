@@ -8,19 +8,31 @@ function getNextElement(node){
 	return null;
 }
 
-function styleHeaderSiblings(){
+function addClass(element, value){
+	if(!element.className){
+		element.className = value;
+	}else{
+		var newClassName = element.className;
+		newClassName += ' ';
+		newClassName += value;
+		element.className = newClassName;
+	}
+}
+
+function styleElementSiblings(tag, theclass){
 	if(!document.getElementsByTagName){
 		return false;
 	}
-	var headers = document.getElementsByTagName('h1');
-	if(headers){
+	var elements = document.getElementsByTagName(tag);
+	if(elements){
 		var elem = null;
-		for(var i=0; i<headers.length; i++){
-			var item = headers[i];
+		for(var i=0; i<elements.length; i++){
+			var item = elements[i];
 			elem = getNextElement(item.nextSibling);
-			elem.style.fontWeight = 'bold';
-			elem.style.fontSize = '1.2em';
+			addClass(elem, theclass);
 		}
 	}
 }
-addLoadEvent(styleHeaderSiblings);
+addLoadEvent(function(){
+	styleElementSiblings('h1', 'intro');
+});

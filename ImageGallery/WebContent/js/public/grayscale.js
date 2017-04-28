@@ -27,9 +27,11 @@ function createGSCanvas(img){
 	
 	var ctx = canvas.getContext('2d');
 	ctx.drawImage(img, 0, 0);
+	var imgWidth = img.width;
+	var imgHeight = img.height;
 	
 	//注意：getImageData只能操作与脚本位于同一个域中的图片
-	var c = ctx.getImageData(0, 0, img.width, img.height);
+	var c = ctx.getImageData(0, 0, imgWidth, imgHeight);
 	for(var i=0; i<c.height; i++){
 		for(var j=0; j<c.width; j++){
 			var x = (i*4)*c.width+(j*4);

@@ -20,13 +20,25 @@
 	</nav>
 </header>
 <article>
-	<p id="intro">
-	Welcome to the official website of Jay Skript and the Domsters.
-	Here, you can <a href="about.html" title="About">learn more about the band</a>,
-	view <a href="photos.html" title="Photos">photos of the band</a>,
-	find out about <a href="live.html" title="Tour Date">tour dates</a>
-	and <a href="contact.html" title="Contact">get in touch with the band</a>.
-	</p>
+	<h1>Contact the band</h1>
+	<form method="post" action="submit.html">
+	<fieldset>
+		<p>
+			<label for="name">Name:</label>
+			<input type="text" id="name" name="name" placeholder="Your name" required="required" />
+		</p>
+		<p>
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email" placeholder="Your email addresss" required="required" />
+		</p>
+		<p>
+			<label for="message">Message:</label>
+			<textarea rows="7" cols="45" id="message" name="message" required="required" 
+			placeholder="Write your message here."></textarea>
+		</p>
+		<input type="submit" value="Send"/>
+	</fieldset>
+	</form>
 </article>
 <script type="text/javascript" src="../js/global.js"></script>
 </body>

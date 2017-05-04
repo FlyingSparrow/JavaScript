@@ -352,3 +352,63 @@ function displayAbbreviations(){
 addLoadEvent(stripeTables);
 addLoadEvent(highlightRows);
 addLoadEvent(displayAbbreviations);
+
+function focusLabels(){
+	if(!document.getElementsByTagName){
+		return false;
+	}
+	var labels = document.getElementsByTagName('label');
+	for(var i=0; i<labels.length; i++){
+		var label = labels[i];
+		if(!label.getAttribute('for')){
+			continue;
+		}
+		label.onclick = function(){
+			var id = this.getAttribute('for');
+			if(!document.getElementById(id)){
+				return false;
+			}
+			var element = document.getElementById(id);
+			element.focus();
+		}
+	}
+}
+addLoadEvent(focusLabels);
+
+function resetFields(whichform){
+	if(Modernizr.input.placeholder){
+		return;
+	}
+	for(var i=0; i<whichform.elements.length; i++){
+		var element = whichform.elements[i];
+		if(element.type == 'submit'){
+			continue;
+		}
+		var check = element.placeholder || element.getAttribute('placeholder');
+		if(!check){
+			continue;
+		}
+		element.onfocus = function(){
+			var text = this.placeholder || this.getAttribute('placeholder');
+			if(this.value == text){
+				this.className = '';
+				this.value = '';
+			}
+		}
+		element.onblur = function(){
+			if(this.value == ''){
+				this.className = 'placeholder';
+				this.value = this.placeholder || this.getAttribute('placeholder');
+			}
+		}
+		element.onblur();
+	}
+}
+
+function prepareForms(){
+	for(var i=0; i<document.forms.length; i++){
+		var thisform = document.forms[i];
+		resetFields(thisform);
+	}
+}
+addLoadEvent(prepareForms);

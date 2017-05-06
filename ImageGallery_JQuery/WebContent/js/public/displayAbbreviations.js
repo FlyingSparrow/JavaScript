@@ -1,5 +1,6 @@
 $(function(){
 	displayAbbreviations();
+	displayAbbreviationsWithTemplate();
 });
 
 function displayAbbreviations(){
@@ -37,4 +38,22 @@ function displayAbbreviations(){
 	$('body').append('<h2>Abbreviations</h2>');
 	//把定义列表添加到页面主体
 	$('body').append('<dl>'+html+'</dl>');
+}
+
+/**
+ * 使用JQuery Template插件实现添加定义列表
+ * 说明：未完成
+ * @returns
+ */
+function displayAbbreviationsWithTemplate(){
+	//创建缩写词数组
+	var data = $('abbr').map(function(){
+		return {
+			desc:$(this).attr('title'),
+			term:$(this).text()
+		};
+	}).toArray();
+	console.log(data);
+	//添加到文档并应用模板
+	
 }

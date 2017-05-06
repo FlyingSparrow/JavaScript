@@ -5,7 +5,7 @@ $(function(){
 function displayAbbreviations(){
 	//取得所有缩略词
 	var abbreviations = $('abbr');
-	if(!abbreviations){
+	if(abbreviations.length < 1){
 		return false;
 	}
 	var defs = new Array();

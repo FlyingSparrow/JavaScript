@@ -5,7 +5,7 @@ $(function(){
 
 function showPic(whichPic){
 	var placeholder = $('#placeholder');
-	if(!placeholder){
+	if(placeholder.length < 1){
 		return false;
 	}
 	var picture = $(whichPic);
@@ -17,7 +17,7 @@ function showPic(whichPic){
 		text = picture.attr('title');
 	}
 	var description = $('#description');
-	if(description){
+	if(description.length > 0){
 		description.text(text);
 	}
 	return true;
@@ -25,7 +25,7 @@ function showPic(whichPic){
 
 function prepareGallery(){
 	var gallery = $('#imagegallery');
-	if(!gallery){
+	if(gallery.length < 1){
 		return false;
 	}
 	gallery.find('a').each(function(i){
@@ -36,7 +36,7 @@ function prepareGallery(){
 }
 
 function preparePlaceholder(){
-	if(!$('#imagegallery')){
+	if($('#imagegallery').length < 1){
 		return false;
 	}
 	$('#imagegallery').after('<img id="placeholder" src="../images/placeholder.jpg" '

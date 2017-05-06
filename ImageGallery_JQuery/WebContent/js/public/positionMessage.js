@@ -3,7 +3,7 @@ $(function(){
 });
 
 function positionMessage(){
-	if(!$('#message')){
+	if($('#message').length < 1){
 		return false;
 	}
 	var elem = $('#message');

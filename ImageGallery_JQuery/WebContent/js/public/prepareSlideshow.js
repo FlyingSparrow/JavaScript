@@ -4,7 +4,7 @@ $(function(){
 
 function prepareSlideshow(){
 	//确保元素存在
-	if(!$('#linklist')){
+	if($('#linklist').length < 1){
 		return false;
 	}
 	

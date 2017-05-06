@@ -5,7 +5,7 @@ $(function(){
 function displayCitations(){
 	//取得所有引用
 	var quotes = $('blockquote[cite]');
-	if(!quotes){
+	if(quotes.length < 1){
 		return false;
 	}
 	//遍历引用

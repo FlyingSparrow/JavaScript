@@ -4,7 +4,7 @@ $(function(){
 
 function displayAccesskeys(){
 	var links = $('a[accesskey]');
-	if(!links){
+	if(links.length < 1){
 		return false;
 	}
 	var akeys = new Array();
